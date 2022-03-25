@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Neurocomputing.Basics;
 
 namespace Neurocomputing.Networks
@@ -72,7 +69,7 @@ namespace Neurocomputing.Networks
                     Compute();
                     MSEs[j] = GetOneTrainSetMSE(trainOutput, Output);
 
-                    BackPropogation(trainOutput, learningRate);
+                    BackPropagation(trainOutput, learningRate);
                 }
 
 
@@ -82,7 +79,7 @@ namespace Neurocomputing.Networks
             Console.WriteLine();
         }
 
-        private void BackPropogation(double[] trainOutput, double learningRate)
+        private void BackPropagation(double[] trainOutput, double learningRate)
         {
             var error = trainOutput.Select((trainOut, i) => Output[i] - trainOut).ToArray();
 
@@ -117,7 +114,7 @@ namespace Neurocomputing.Networks
                 mse += MSEs[i];
             }
 
-            return mse /= MSEs.Length;
+            return mse / MSEs.Length;
         }
 
     }
